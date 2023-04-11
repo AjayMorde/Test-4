@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Website</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		nav {
+			background-color: #333;
+			color: #fff;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			padding: 10px;
+		}
+		nav a {
+			color: #fff;
+			margin: 0 10px;
+			text-decoration: none;
+		}
+		header {
+			background-color: #f2f2f2;
+			padding: 50px;
+			text-align: center;
+		}
+		h1 {
+			margin: 0;
+		}
+		main {
+			padding: 20px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+		section {
+			background-color: #f2f2f2;
+			padding: 20px;
+			margin-bottom: 20px;
+			flex-basis: 90%;
+			box-sizing: border-box;
+		}
+		section p {
+			margin: 0;
+			line-height: 1.5;
+			font-size: 18px;
+		}
+    .l{
+      display: none;
+    }
+    #p{
+	display: block;
+}
+
+
+        h2 {
+            font-size: 2em;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        label {
+            margin-bottom: 0.5em;
+        }
+
+        input {
+            margin-bottom: 1em;
+            padding: 0.5em;
+            border-radius: 4px;
+            border: none;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        #sirname{
+          font-size: 20px;
+        }
+    
+	</style>
+</head>
+<body>
+	<div id="main">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#" id="u">Users</a>
+      <a href ="#" id="p">Products</a>
+      <a href="#" id="c">Contact</a>
+    </nav>
+    <header>
+      <h1>Welcome to My Website</h1>
+    </header>
+    <main>
+      <section>
+        <p>Our website offers a variety of products for everyone. We have a large collection of electronic products including smartphones, laptops, and accessories. Our jewellery collection includes necklaces, bracelets, earrings, and rings. We also have a range of men's and women's clothing, including shirts, pants, suits, dresses, tops, skirts, and accessories. Each product listing includes a photo, description, price, and available sizes or colors. Browse through our products and find what you need.</p>
+      </section>
+    </main>
+    <footer>
+      <p>Contact us at ajaymorde77@gmail.com</p>
+    </footer>
+    <div class="prs">
+		<li class="l">Electronic</li>
+    <li class="l">Jewellery</li>
+    <li class="l">womenswearing</li>
+    <li class="l">Menswearing</li>
+	</div>
+  </div>
+  <main>
+	<section id="users">
+	  <!-- user information will be dynamically added here -->
+	</section>
+	<section>
+	  <!-- product information -->
+	</section>
+  </main>
+  
+ <script>
+
+// Get the product link by its ID
+var productLink = document.getElementById("p");
+
+// Add an event listener to the link to handle clicks
+productLink.addEventListener("click", function(e) {
+    // Prevent the default link behavior
+    e.preventDefault();
+  
+    
+    var productWindow = window.open("product.html");
+    
+    
+    productWindow.addEventListener("load", function() {
+    
+        var body = productWindow.document.body;
+        
+        var heading1 = productWindow.document.createElement("h1");
+        var link1 = productWindow.document.createElement("a");
+        link1.href = "electronic.html";
+        link1.textContent = "Electronic Page";
+        heading1.appendChild(link1);
+        body.appendChild(heading1);
+
+        var heading2 = productWindow.document.createElement("h1");
+        var link2 = productWindow.document.createElement("a");
+        link2.href = "jewellery.html";
+        link2.textContent = "Jewellery Page";
+        heading2.appendChild(link2);
+        body.appendChild(heading2);
+
+        var heading3 = productWindow.document.createElement("h1");
+        var link3 = productWindow.document.createElement("a");
+        link3.href = "menswearing.html";
+        link3.textContent = "Menswearing Page";
+        heading3.appendChild(link3);
+        body.appendChild(heading3);
+
+        var heading4 = productWindow.document.createElement("h1");
+        var link4 = productWindow.document.createElement("a");
+        link4.href = "womenswearing.html";
+        link4.textContent = "Womenswearing Page";
+        heading4.appendChild(link4);
+       body.appendChild(heading4);
+
+
+       let p=productWindow.document.createElement('p')
+    p.textContent="Double Click on Back Home";
+    p.style.fontSize="30px"
+    body.appendChild(p);
+
+ 
+        var backButton = productWindow.document.createElement("a");
+        backButton.href = "index.html";
+        backButton.textContent = "back Home";
+		backButton.style.cssText="20px"
+        body.appendChild(backButton);
+
+        backButton.addEventListener("click", function(e) {
+    
+    e.preventDefault();
+    
+    
+    window.close();
+
+  
+
+});
+
+body.appendChild(backButton);
+    });
+});
+
+var contactLink = document.getElementById("c");
+contactLink .addEventListener('click',function(e){
+  e.preventDefault(e);
+  
+  var contactWindow =window.open("contact.html");
+  contactWindow.addEventListener('load',function(){
+    var body=  contactWindow.document.body
+    var head=contactWindow.document.createElement("h1");
+    head.textContent="Contact-us";
+    body.appendChild(head)
+    var nameLabel = contactWindow.document.createElement("lable");
+    var nameInput= contactWindow.document.createElement("input");
+    nameLabel.textContent = "Name:";
+    nameLabel.appendChild(nameInput);
+        body.appendChild(nameLabel);
+
+
+        var sirLable= contactWindow.document.createElement("lable");
+    var sirInput= contactWindow.document.createElement("input");
+   
+    sirLable.textContent = "Last Name:";
+    sirLable.appendChild(sirInput);
+        body.appendChild(sirLable);
+
+
+
+        var mLable= contactWindow.document.createElement("lable");
+    var mInput= contactWindow.document.createElement("input");
+  
+    mLable.textContent = "Mobile-number:";
+    mLable.appendChild(mInput);
+        body.appendChild(mLable);
+
+
+     
+const button = contactWindow.document.createElement('button');
+
+button.textContent = 'Submit'; 
+button.style.backgroundColor = 'blue'; 
+button.style.color = 'white'; 
+button.style.padding = '10px'; 
+// Button.style.display = "block";
+// Button.style.marginTop = "10px";
+
+
+body.appendChild(button);
+
+
+let p=contactWindow.document.createElement('p')
+    p.textContent="Double Click on Back Home";
+    p.style.fontSize="30px"
+    body.appendChild(p);
+
+
+
+var backButton = contactWindow.document.createElement("a");
+backButton.href = "index.html";
+backButton.textContent = "back Home";
+backButton.style.display = "block";
+backButton.style.marginTop = "70px";
+body.appendChild(backButton);
+backButton.addEventListener("click", function(e) {
+    
+    e.preventDefault();
+    
+    
+    window.close();
+});
+
+body.appendChild(backButton);
+    });
+});
+    
+
+  
+
+
+let user =document.getElementById('u')
+user.addEventListener("click", function(e) {
+    
+    e.preventDefault();
+    
+    var userWindow = window.open("user.html");
+
+    userWindow.addEventListener("load", function(){
+      var body = userWindow.document.body;
+
+  
+const container = userWindow.document.createElement('div');
+
+
+const heading = userWindow.document.createElement('h1');
+heading.textContent = 'About Me';
+container.appendChild(heading);
+
+const paragraph = userWindow.document.createElement('p');
+paragraph.textContent = "My name is Ajay  <br> COntact me On 7517537095  This Number"
+container.appendChild(paragraph);
+
+
+body.appendChild(container);
+// window.location.replace(`data:text/html;charset=utf-8,${encodeURIComponent(container.outerHTML)}`);
+ 
+
+
+
+let p=userWindow.document.createElement('p')
+    p.textContent="Double Click on Back Home";
+    p.style.fontSize="30px"
+    body.appendChild(p);
+
+
+
+
+
+
+var backButton = userWindow.document.createElement("a");
+backButton.href = "index.html";
+backButton.textContent = "back Home";
+backButton.style.display = "block";
+backButton.style.marginTop = "70px";
+body.appendChild(backButton);
+
+
+backButton.addEventListener("click", function(e) {
+    
+    e.preventDefault();
+    
+    
+    window.close();
+});
+
+body.appendChild(backButton);
+    });
+});
+
+    
+  
+
+
+
+
+ </script>
+  
+    
+    
+    
+</body>
+</html>
